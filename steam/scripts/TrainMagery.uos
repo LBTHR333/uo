@@ -1,0 +1,197 @@
+//INSTRUCTIONS//////////////////////
+// Shard: UOLL
+// Must start with 50 mage/med
+// Must get 100 STR/INT first
+// FFWalk to 55 resist first
+// You need a healer alt
+//SETUP/////////////////////////////
+if not @findobject 'chestRegs'
+  headmsg 'Reagent Chest..'
+  promptalias 'chestRegs'
+endif
+useobject 'chestRegs'
+pause 800
+///WORK/////////////////////////////
+while not dead
+  ///do meditations
+  if skill 'meditation' < 30
+    sysmsg 'Buy more skill!'
+    stop
+  elseif skill 'meditation' < 40
+    //finish
+    sysmsg 'meditation is under 40'
+  elseif skill 'meditation' < 50
+    sysmsg 'meditation is under 50'
+    //finish
+  elseif skill 'meditation' < 60
+    if mana <= 30
+      sysmsg 'meditation is under 60'
+      while mana <= 80
+        useskill 'meditation'
+        msg '.'
+        pause 10000
+      endwhile
+      while not mana == maxmana
+        useskill 'meditation'
+        pause 10000
+      endwhile
+    endif
+  elseif skill 'meditation' < 70
+    if mana <= 20
+      sysmsg 'meditation is under 70'
+      while mana <= 70
+        useskill 'meditation'
+        msg '.'
+        pause 10000
+      endwhile
+      while not mana == maxmana
+        useskill 'meditation'
+        pause 10000
+      endwhile
+    endif
+  elseif skill 'meditation' < 80
+    if mana <= 10
+      sysmsg 'meditation is under 80'
+      while mana <= 60
+        useskill 'meditation'
+        msg '.'
+        pause 10000
+      endwhile
+      while not mana == maxmana
+        useskill 'meditation'
+        pause 10000
+      endwhile
+    endif
+  elseif skill 'meditation' < 90
+    if mana <= 5
+      sysmsg 'meditation is under 90'
+      while mana <= 50
+        useskill 'meditation'
+        msg '.'
+        pause 10000
+      endwhile
+      while not mana == maxmana
+        useskill 'meditation'
+        pause 10000
+      endwhile
+    endif
+  elseif skill 'meditation' < 100
+    if mana <= 5
+      sysmsg 'meditation is under 100'
+      while mana <= 40
+        useskill 'meditation'
+        msg '.'
+        pause 10000
+      endwhile
+      while not mana == maxmana
+        useskill 'meditation'
+        pause 10000
+      endwhile
+    endif
+  else
+    sysmsg 'meditation is GM'
+    while not mana == maxmana
+      useskill 'meditation'
+      pause 10000
+    endwhile
+  endif
+  ///get heals
+  if hits < 45
+    while not hits == maxhits
+      sysmsg 'healz plx'
+      pause 1000
+    endwhile
+  endif
+  ///Magery: Skill Under 30: Buy skill from mage shop
+  if skill 'magery' < 30
+    headmsg 'Buy more skill!'
+    stop
+  ///Magery: Skill Under 30-45: Cast Bless
+  elseif skill 'magery' < 45
+    if @counttype '0xf86' 'any' 'backpack' < 1
+      sysmsg 'grabbing some mandrake'
+      if movetype '0xf86' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock mandrake!'
+        stop
+      endif
+      pause 800
+    endif
+    if @counttype '0xf84' 'any' 'backpack' < 1
+      sysmsg 'grabbing some garlic'
+      if movetype '0xf84' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock garlic!'
+        stop
+      endif
+      pause 800
+    endif
+    cast 'bless' 'self'
+    pause 2000
+  ///Magery: Skill Under 45-61: Cast Lightning 
+  elseif skill 'magery' < 61
+    if @counttype '0xf86' 'any' 'backpack' < 1
+      sysmsg 'grabbing some mandrake'
+      if movetype '0xf86' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock mandrake!'
+        stop
+      endif
+      pause 800
+    endif
+    if @counttype '0xf8c' 'any' 'backpack' < 1
+      sysmsg 'grabbing some sulfurous ash.'
+      if movetype '0xf8c' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock sulfurous ash!'
+      endif
+      pause 800
+    endif
+    cast 'lightning' 'self'
+    pause 2500
+  ///Magery: Skill Under 61-91: Cast Energy Bolt 
+  elseif skill 'magery' < 91
+    if @counttype '0xf7a' 'any' 'backpack' < 1
+      sysmsg 'grabbing some black perl'
+      if movetype '0xf7a' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock black perl!'
+      endif
+      pause 800
+    endif
+    if @counttype '0xf88' 'any' 'backpack' < 1
+      sysmsg 'grabbing some nightshade.'
+      if movetype '0xf88' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock nightshade!'
+        stop
+      endif
+      pause 800
+    endif
+    cast 'energy bolt' 'self'
+    pause 3000
+  ///Magery: Skill Under 91-100: Cast Flame Strike 
+  elseif skill 'magery' < 100
+    if @counttype '0xf8c' 'any' 'backpack' < 1
+      sysmsg 'grabbing some sulfurous ash.'
+      if movetype '0xf8c' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock sulfurous ash!'
+      endif
+      pause 800
+    endif
+    if @counttype '0xf8d' 'any' 'backpack' < 1
+      sysmsg 'grabbing some spider silk.'
+      if movetype '0xf8d' 'chestRegs' 'backpack' 0 0 0 'any'  15 2
+      else
+        sysmsg 'Restock spider silk!'
+      endif
+      pause 800
+    endif
+    cast 'flame strike' 'self'
+    pause 3500
+  else
+    headmsg 'Magery complete!'
+    stop
+  endif
+endwhile
