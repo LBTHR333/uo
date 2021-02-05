@@ -1,0 +1,19 @@
+///Who are we healing//////
+if not @findalias 'patient'
+  headmsg 'Select patient'
+  promptalias 'patient'
+endif
+///GET READY//////////////
+if @counttype 0xe21 0x0 'backpack' < 10
+  headmsg 'Grabbing bandies'
+  movetype 0xe21 'ground' 'backpack' 102 90 0 0x0 50 4
+  pause 1000
+endif
+///HALP DUDE//////////////
+if hits 'patient' < 90 and @inrange 'patient' 10
+  bandage 'patient'
+  for 7
+    pause 1000
+    sysmsg 'healing dude'
+  endfor
+endif
