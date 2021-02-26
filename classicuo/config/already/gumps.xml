@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<gumps>
+	<anchored_group_gump matrix_w="2" matrix_h="3">
+		<gump type="7" x="2881" y="395" serial="1008" name="Tracking" matrix_x="0" matrix_y="0" />
+		<gump type="7" x="2881" y="395" serial="1008" name="Tracking" matrix_x="1" matrix_y="0" />
+		<gump type="7" x="2881" y="439" serial="1009" name="All Names" matrix_x="0" matrix_y="1" />
+		<gump type="7" x="2881" y="439" serial="1009" name="All Names" matrix_x="1" matrix_y="1" />
+		<gump type="7" x="2881" y="483" serial="1007" name="BuffBar" matrix_x="0" matrix_y="2" />
+		<gump type="7" x="2881" y="483" serial="1007" name="BuffBar" matrix_x="1" matrix_y="2" />
+	</anchored_group_gump>
+	<gump type="2" x="2718" y="537" serial="1178145404" graphic="60" isminimized="False" />
+	<gump type="2" x="2580" y="537" serial="1178145410" graphic="60" isminimized="False" />
+	<gump type="9" x="2722" y="60" serial="1322487" isminimized="False" />
+	<gump type="4" x="1447" y="72" serial="1322487" name="already" />
+	<gump type="3" x="1262" y="0" serial="0" rows="1" columns="12" rectsize="40">
+		<controls>
+			<control graphic="3705" hue="38" />
+			<control graphic="3852" hue="0" />
+			<control graphic="3847" hue="0" />
+			<control graphic="0" hue="0" />
+			<control graphic="0" hue="0" />
+			<control graphic="0" hue="0" />
+			<control graphic="0" hue="0" />
+			<control graphic="0" hue="0" />
+			<control graphic="0" hue="0" />
+			<control graphic="0" hue="38" />
+			<control graphic="0" hue="0" />
+			<control graphic="3742" hue="0" />
+		</controls>
+	</gump>
+	<gump type="20" x="2863" y="3" serial="0" minimized="False" />
+	<gump type="5" x="1266" y="39" serial="0" />
+	<gump type="1" x="12" y="53" serial="0" graphic="30080" direction="1" />
+	<gump type="19" x="2782" y="3" serial="0" minimized="False" />
+	<gump type="18" x="2575" y="1292" serial="0" />
+</gumps>
