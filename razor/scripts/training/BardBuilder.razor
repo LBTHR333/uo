@@ -1,0 +1,54 @@
+overhead 'remember to set bardtarg variable in options tab'
+//Train peacemaking to 100
+while skill 'peacemaking' < 100
+    clearsysmsg 
+    skill 'peacemaking'
+    wft 2000
+    if insysmsg 'instrument shall'
+        say 'Instrument broke, picking new one.'
+        targettype 'tambourine'
+        wft 2000
+    endif
+    target 'bardtarg'
+    pause 500
+    if insysmsg 'fail to pacify'
+        overhead 'Peace failed: short cooldown'
+        for 6
+        pause 1000
+        endfor
+        overhead 'skill ready'
+    elseif insysmsg 'you play successfully'
+        overhead 'Peace success: long cooldown'
+        for 11
+        pause 1000
+        endfor
+        overhead 'skill ready'
+    endif
+endwhile
+//Train discordance to 100
+while skill 'discordance' < 100
+    clearsysmsg 
+    skill 'discordance'
+    wft 2000
+    if insysmsg 'instrument shall'
+        say 'Instrument broke, picking new one.'
+        targettype 'tambourine'
+        wft 2000
+    endif
+    target 'bardtarg'
+    pause 500
+    if insysmsg 'fail to discord'
+        overhead 'Discord failed: short cooldown'
+        for 6
+        pause 1000
+        endfor
+        overhead 'skill ready'
+    elseif insysmsg 'you play successfully'
+        overhead 'Discord success: long cooldown'
+        for 11
+        pause 1000
+        endfor
+        overhead 'skill ready'
+    endif
+endwhile
+overhead 'All done!'
